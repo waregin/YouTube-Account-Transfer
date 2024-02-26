@@ -26,7 +26,7 @@ There are multiple ways to accomplish many of the below steps. I have listed wha
 1. Download your Takeout file(s), extract archive, and look for the watch-history.json file in Takeout -> YouTube and YouTube Music -> history
 1. Copy watch-history.json to the same folder as this README
 1. Finally, you are ready to run the script! Either open a PowerShell terminal (in VSC or otherwise) to this directory and run ``python .\ImportHistory.py`` or right click on ImportHistory.py in VSC's Explorer and select ``Run Python File in Terminal`` (it was the bottom of the list for me)
-1. Note: I muted my computer while this was running
+1. Note: If you don't want to hear the first 10 seconds of every video in your history, but wish to avoid muting your entire computer, I recommend the Tab Muter Chrome extension, which allows you to mute specifically the tab that Clicknium is using to run this script.
 1. Note: I experienced an occassional "Are you sure you want to Leave? Changes may not be saved" popup, especially with YouTube Music. I simply kept the Clicknium tab open on another monitor so I could click the "Leave" button when this happened.
 
 
