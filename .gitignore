@@ -2,5 +2,7 @@ history
 lib
 playlists
 subscriptions
-watch-history.json
+watch-history.*
 search-history.json
+.locator
+.env
