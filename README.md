@@ -26,7 +26,7 @@ ImportHistoryTakeout.py
 Script to take YouTube watch and search history from Google Takeout JSON files and open in an account in Chrome. This is handy for restoring deleted history if you have a Google Takeout from before the deletion or account transfer.
 
 
-# Instructions
+### Instructions
 
 There are multiple ways to accomplish many of the below steps. I have listed what I did.
 
@@ -50,7 +50,7 @@ There are multiple ways to accomplish many of the below steps. I have listed wha
     - Note: I experienced an occassional "Are you sure you want to Leave? Changes may not be saved" popup, especially with YouTube Music. I simply kept the Clicknium tab open on another monitor so I could click the "Leave" button when this happened.
 
 
-# Changes from Source
+### Changes from Source
 
 - removed ``['history']`` from line 15
 - changed lines 6-7 to use Chrome rather than vivaldi
@@ -66,10 +66,10 @@ ImportHistoryMyActivity.py
 
 ### Description
 
-Script to scroll through YouTube history on My Activity page for Google account, gather the URLs, and add them to YouTube's Watch History. This is handy to restore deleted history when you have no Takeout file, although it likely only has a limited timeframe where it will work. Inspired by the next script in this project.
+Script to scroll through YouTube history on My Activity page for Google account, gather the URLs, and add them to YouTube's Watch and Search History. This is handy to restore deleted history when you have no Takeout file, although it likely only has a limited timeframe where it will work. Inspired by the above script.
 
 
-# Instructions
+### Instructions
 
 There are multiple ways to accomplish many of the below steps. I have listed what I did.
 
@@ -99,6 +99,7 @@ There are multiple ways to accomplish many of the below steps. I have listed wha
     1. Close your YouTube History tab to avoid confusion with the one the script will open
     1. Back in VSC, open your new div_watched locator by clicking on it in the Locators part of the Explorer panel. Modify the ``index`` in the right side panel to say ``{{indexValue}}`` instead of the number, as in the below screenshot
     ![Div Watched Locator](screenshots\DivWatchedLocator.png)
+    1. Your locator might be named chrome -> myactivity -> div_watched or google -> myactivity -> div_watched. Double check that lines 57 and 58 have the correct path. If they don't, VSC should underline the word in red.
 1. Finally, you are ready to run the script! Either open a PowerShell terminal (in VSC or otherwise) to the script's folder and run ``python .\ImportHistoryMyActivity.py`` or right click on ImportHistory.py in VSC's Explorer and select ``Run Python File in Terminal`` (it was the bottom of the list for me)
     - Note: If you don't want to hear the first 10 seconds of every video in your history, but wish to avoid muting your entire computer, I recommend the Tab Muter Chrome extension, which allows you to mute specifically the tab that Clicknium is using to run this script.
     - Note: I experienced an occassional "Are you sure you want to Leave? Changes may not be saved" popup, especially with YouTube Music. I simply kept the Clicknium tab open on another monitor so I could click the "Leave" button when this happened
@@ -109,9 +110,26 @@ There are multiple ways to accomplish many of the below steps. I have listed wha
         - NOTE: If you want to re-try again, instead of renaming the watch-history.txt, copy the contents of that file and add them to watch-history-previous.txt
 
 
-### Potential Future Enhancements
 
-- modify ImportHistoryMyActivity.py to gather search history as well
+## 3. Import Playlists using Google Takeout File(s)
+
+### Description
+
+This script is still very much in progress. In its current iteration, it uses the YouTube API and can only handle a limited scope at a time. I haven't decided yet whether I'll modify this to use Clicknium or publish an official Google App. 
+
+
+### Instructions
+
+1. Run the following commands to install google libraries:
+```
+pip install --upgrade google-api-python-client
+pip install --upgrade google-auth-oauthlib google-auth-httplib2
+```
+
+
+
+## Potential Future Enhancements
+
 - modify ImportHistoryTakeout.py to use all files in the history folder dynamically instead of hardcoding two filenames
 - when opening a video for history, check the length and wait that long (or half that long?)
 - increase video playback speed for opening videos for history

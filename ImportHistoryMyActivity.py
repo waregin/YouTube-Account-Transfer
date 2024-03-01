@@ -1,5 +1,6 @@
 from clicknium import locator, clicknium as cc
-from datetime import datetime, time
+import time as sleepytime
+from datetime import datetime
 
 # get clicknium license key from .env file
 license_key = ""
@@ -29,7 +30,7 @@ activity_tab = cc.chrome.open("https://myactivity.google.com/product/youtube?hl=
 # activity_tab = cc.chrome.open("https://myactivity.google.com/product/youtube?hl=en&max=1708405199999999")
 
 # give the page a second to load - please increase this number if your internet is slow
-time.sleep(1)
+sleepytime.sleep(1)
 
 # collect any previously opened urls to save time
 # NOTE: if the previous run of the script failed to scroll to the bottom of the page,
@@ -63,7 +64,7 @@ while activity_tab.is_existing(locator.chrome.myactivity.div_watched, {'indexVal
             break
     # every 20th video, wait a bit for the page to load more videos
     if index % 20 == 0:
-        time.sleep(curr_sleep_time)
+        sleepytime.sleep(curr_sleep_time)
     # every 1000th video, increase the wait time, up to 60 seconds
     if index % 1000 == 0 and curr_sleep_time < max_sleep_time:
         curr_sleep_time = curr_sleep_time + sleep_time_incr
@@ -92,10 +93,10 @@ for url in urls:
     count += 1
     # open the url and then wait for it to fully register youtube history
     watch_tab.goto(url)
-    time.sleep(10) # arbitrary number, feel free to make shorter if it works
+    sleepytime.sleep(10) # arbitrary number, feel free to make shorter if it works
     # print progress every 50th video - change the number if you want more or less frequent updates
     if count % 50 == 0:
-        print(f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Opened {count} of {len(urls)} so far")
+        print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Opened {count} of {len(urls)} so far")
 
 # close the tab 
 watch_tab.close()

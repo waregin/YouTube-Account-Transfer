@@ -6,3 +6,4 @@ watch-history.*
 search-history.json
 .locator
 .env
+client_secret.json

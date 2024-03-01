@@ -1,6 +1,6 @@
 from clicknium import clicknium as cc
-from datetime import datetime, time
-import json
+import time as sleepytime, json
+from datetime import datetime
 
 # install chrome extension and open a tab to automate
 # cc.chrome.extension.install_or_update()
@@ -23,11 +23,11 @@ for filename in ["history/watch-history.json", "history/search-history.json"]:
 
                 # open the url and then wait for it to fully register youtube history
                 tab.goto(url)
-                time.sleep(10) # arbitrary number, feel free to make shorter if it works
-            if count % 500 == 0:
+                sleepytime.sleep(10) # arbitrary number, feel free to make shorter if it works
+            if count % 100 == 0:
                 if 'time' in i:
-                    print(f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - History added through {i['time']}")
-                print(f"{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Opened {count} of {len(data)} so far")
+                    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - History added through {i['time']}")
+                print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Opened {count} of {len(data)} so far")
     
         # closing file
         f.close()
