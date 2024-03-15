@@ -11,6 +11,11 @@ This project contains several Python scripts using Clicknium to help in recoveri
 All of these scripts are inpired by [this Reddit post](https://www.reddit.com/r/automation/comments/ydzgzn/importing_youtube_history_via_clicknium_and_python/). Most of the credit for the first script should go to that OP. I've included a list of my changes.
 
 
+### Need Help?
+
+I offer a [consultation for using these scripts on Upwork](https://www.upwork.com/services/consultation/development-it-reginald-1767634839150649344?ref=project_share&tier=0).
+
+
 ## VERY IMPORTANT CLICKNIUM NOTE
 
 If you are working on Windows and your user account folder name (under C:\Users) has a space in it, Clicknium will NOT work. A workaround for this is to create a tempuser with no spaces, log in as that user, and follow the instructions from there. You may need to create a new Microsoft account for this. I would love to hear about a better workaround or if Clicknium ever fixes this bug.
